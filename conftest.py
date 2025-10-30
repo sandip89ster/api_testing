@@ -21,8 +21,8 @@ logging.debug("Logger initiated")
 
 load_dotenv()
 
-BASE = os.getenv("REQ_RES_URL")
-WEBHOOK_BASE = os.getenv("WEBHOOK_URL")
+BASE = "https://reqres.in/api"
+WEBHOOK_BASE = "https://webhook.site"
 
 WEBHOOK_TOKEN = os.getenv("WEBHOOK_TOKEN")
 WEBHOOK_URL = f"{WEBHOOK_BASE}/{WEBHOOK_TOKEN}"

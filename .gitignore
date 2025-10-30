@@ -4,5 +4,6 @@ venv/
 allure-results/
 allure-report/
 .vscode/
+logs/
 .env
 .DS_Store
