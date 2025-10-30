@@ -33,7 +33,9 @@ Create .env file in root of project
 set the following properties with actual keys
 
 ```
+REQ_RES_URL=https://reqres.in/api
 X_API_KEY=XXXXXXXXXXXXXXXXXX
+WEBHOOK_URL=https://webhook.site
 WEBHOOK_TOKEN=XXXXXXXXXXXXXX
 ```
 
