@@ -21,13 +21,14 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest -q --alluredir=allure-results
-      - name: Generate Allure report
-        run: allure generate allure-results -o allure-report --clean
-      - name: Upload Allure report as artifact
-        uses: actions/upload-artifact@v4
+      - name: Generate Allure test report
+        uses: andgineer/allure-report@v3.6
+        id: allure-report
+        if: always()
         with:
-          name: allure-report
-          path: allure-report/
+          allure-results: allure-results
+          website: gh-pages-dir
+          reports-site-path: builds/tests
       - name: Deploy Allure report to GitHub Pages
         if: success()
         uses: peaceiris/actions-gh-pages@v3
