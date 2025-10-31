@@ -15,7 +15,7 @@ It supports:
 
 - Python 3
 - Access to [reqres.in](https://reqres.in) with API token
-- Access to [webhook.site] (https://webhook.site)
+- Access to [webhook.site](https://webhook.site)
 
 ### Installation
 
@@ -33,9 +33,7 @@ Create .env file in root of project
 set the following properties with actual keys
 
 ```
-REQ_RES_URL=https://reqres.in/api
 X_API_KEY=XXXXXXXXXXXXXXXXXX
-WEBHOOK_URL=https://webhook.site
 WEBHOOK_TOKEN=XXXXXXXXXXXXXX
 ```
 
@@ -84,6 +82,7 @@ allure serve allure-results
 
 - reqres.in site limits the requests and sometime getting HTTP status code 429 (Too many requests)
 - reqres.in & webhook.site are both free service portal and reliability of services might be doubtful
+- Most of the negative scenarios still return success message which compromises testing quality
 
 ## 5. Test design decision based on risk
 
