@@ -21,18 +21,18 @@ jobs:
         run: pip install -r requirements.txt
       - name: Run tests
         run: pytest -q --alluredir=allure-results
-      - name: Generate Allure test report
-        uses: andgineer/allure-report@v3.6
-        id: allure-report
-        if: always()
-        with:
-          allure-results: allure-results
-          website: gh-pages-dir
-          reports-site-path: builds/tests
-      - name: Deploy Allure report to GitHub Pages
-        if: success()
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-report
+      # - name: Generate Allure test report
+      #   uses: andgineer/allure-report@v3.6
+      #   id: allure-report
+      #   if: always()
+      #   with:
+      #     allure-results: allure-results
+      #     website: gh-pages-dir
+      #     reports-site-path: builds/tests
+      # - name: Deploy Allure report to GitHub Pages
+      #   if: success()
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_branch: gh-pages
+      #     publish_dir: allure-report
