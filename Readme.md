@@ -87,7 +87,7 @@ allure serve allure-results
 |     Jsonschema      |   Schema Validation   |   Good response validation of schemas   |
 |    allure-pytest    |       Reporting       |     Good reporting of test results      |
 |    python-dotenv    | Environment variables |     Managing environment variables      |
-|    pytest-xdist     |  Test runs parallel   |         Resuce execution times          |
+|    pytest-xdist     |  Test runs parallel   |         Reduce execution times          |
 
 ## 3. Webhook validation logic
 
