@@ -17,6 +17,7 @@ It supports:
 - Python 3
 - Access to [reqres.in](https://reqres.in) with API token
 - Access to [webhook.site](https://webhook.site)
+- Makefile
 
 ### Installation
 
