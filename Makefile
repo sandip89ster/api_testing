@@ -10,8 +10,11 @@ test_parallel:
 test_output:
 	pytest -s -v
 
-test_sanity:
-	pytest -s -v -m sanity 
+test_smoke:
+	pytest -s -v -m smoke 
+
+test_regression:
+	pytest -s -v -m regression
 
 test_allure:
 	pytest -q --alluredir=allure-results  

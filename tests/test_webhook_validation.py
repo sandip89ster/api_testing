@@ -8,7 +8,8 @@ logger = logging.getLogger("api_tests")
 
 
 class TestWebhook:
-    @pytest.mark.sanity
+    @pytest.mark.smoke
+    @pytest.mark.regression
     def test_webhook(
         self, webhook_base_url, webhook_token, webhook_url, webhook_headers
     ):

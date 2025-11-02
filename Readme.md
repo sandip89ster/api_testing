@@ -8,6 +8,7 @@ It supports:
 - **Webhook** async polling and response validation
 - **Parallel Execution** & **Allure reporting** for easy and fast test insights
 - **Makefile** for easy command execution
+- **Test Tagging** to support test priority execution
 
 ## 1. Setup Instructions
 
@@ -45,6 +46,17 @@ Run command
 pytest -n auto -q --alluredir=allure-results
 ```
 
+Also, Makefile is added to make executions easier
+
+- To run test normally - `make test`
+- To run test **paralelly** - `make test_parallel`
+- To run test with verbose - `make test_output`
+- Run only **smoke tests** - `make test_smoke`
+- Run only **regression tests** - `make test_regression`
+- Run test with allure report - `make test_allure`
+- Generate allure report - `make allure_generate`
+- Serve allure report - `make allure_serve`
+
 ### Launch Allure Reports
 
 Run command
@@ -75,7 +87,7 @@ allure serve allure-results
 ## 3. Webhook validation logic
 
 - Trigger a POST request with webhook.site with custom header `x-request-time`
-- The method - poll_for_latest_uuid() will poll every 1 secnd for total duration of 10 seconds to check for latest UUID
+- The method - poll_for_latest_uuid() will poll every 1 second for total duration of 10 seconds to check for latest UUID
 - Fetch the response with latest UUID, get response parse content and validate against payload and also ensuring `x-resuest-time` in header is within 2 minutes
 
 ## 4. Trade-offs & Improvements
@@ -83,6 +95,7 @@ allure serve allure-results
 - reqres.in site limits the requests and sometime getting HTTP status code 429 (Too many requests)
 - reqres.in & webhook.site are both free service portal and reliability of services might be doubtful
 - Most of the negative scenarios still return success message which compromises testing quality
+- In Github actions, uploaded Allure report is not showing up in GitHub pages(unable to fix due to time constraint)
 
 ## 5. Test design decision based on risk
 

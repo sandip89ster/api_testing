@@ -15,6 +15,8 @@ class TestUsers:
     @pytest.mark.parametrize(
         "payload", USERS, ids=lambda p: f"{p['name']} - {p['job']}"
     )
+    @pytest.mark.smoke
+    @pytest.mark.regression
     def test_create_user(self, payload, headers, base_url, load_schema):
         response = post_request(f"{base_url}/users", payload, headers)
         allure.attach(response.text, "response.json", allure.attachment_type.JSON)
@@ -24,6 +26,8 @@ class TestUsers:
         schema = load_schema("create_user.json")
         assert_schema(body, schema)
 
+    @pytest.mark.smoke
+    @pytest.mark.regression
     def test_get_users(self, base_url, headers, load_schema):
         response = get_request(f"{base_url}/users", headers)
         allure.attach(response.text, "response.json", allure.attachment_type.JSON)
@@ -34,6 +38,8 @@ class TestUsers:
         schema = load_schema("get_users.json")
         assert_schema(body, schema)
 
+    @pytest.mark.smoke
+    @pytest.mark.regression
     def test_delete_user(self, headers, base_url):
         response = delete_request(f"{base_url}/users/2", headers)
         assert_status(response, 204)
@@ -42,6 +48,7 @@ class TestUsers:
     @pytest.mark.parametrize(
         "payload", USERS, ids=lambda p: f"{p['name']} - {p['job']}"
     )
+    @pytest.mark.regression
     def test_create_user_anonymous(self, base_url, payload):
         response = post_request(f"{base_url}/users", payload, None)
         allure.attach(response.text, "response.json", allure.attachment_type.JSON)
@@ -51,6 +58,7 @@ class TestUsers:
         assert body["error"] == "Missing API key"
 
     # negative case - delete user - anonymous
+    @pytest.mark.regression
     def test_delete_user_anonymous(self, base_url):
         response = delete_request(f"{base_url}/users", None)
         allure.attach(response.text, "response.json", allure.attachment_type.JSON)
@@ -61,6 +69,7 @@ class TestUsers:
         assert body["error"] == "Missing API key"
 
     # negative case - get user - anonymous (without header still able to access the results)
+    @pytest.mark.regression
     def test_get_users_anonymous(self, base_url):
         response = get_request(f"{base_url}/users", None)
         assert_status(response, 200)
@@ -71,11 +80,13 @@ class TestUsers:
     # Scenario 1 : Empty name & job, Scenario 2 : No name, Scenario 3 : no job, Scenario 4 : Numeric name & job,
     # Scenario 5 : Special characters in name & job, Scenario 6 : Invalid JSON objects, Scenario 7 : Invalid duplicating JSON objects
     @pytest.mark.parametrize("payload", INVALID_USER_DATA)
+    @pytest.mark.regression
     def test_create_user_invalid(self, payload, headers, base_url):
         response = post_request(f"{base_url}/users", payload, headers)
         print(response.status_code)
 
     # negative case - delete without resource id (without resource id still getting successful result)
+    @pytest.mark.regression
     def test_delete_user_invalid(self, headers, base_url):
         response = delete_request(f"{base_url}/users", headers)
         print(response.status_code)

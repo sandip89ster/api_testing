@@ -17,7 +17,6 @@ def poll_for_latest_uuid(old_value, base, token):
     start_time = time.monotonic()
     new_value = get_latest_uuid(base, token)
     while old_value == new_value and time.monotonic() - start_time < 10:
-        print(old_value, new_value)
         new_value = get_latest_uuid(base, token)
         time.sleep(1)
     return new_value
