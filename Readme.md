@@ -80,7 +80,7 @@ allure serve allure-results
 | :-----------------: | :-------------------: | :-------------------------------------: |
 |       Pytest        |    Test Framework     | Preferred framework for this assignment |
 |      Requests       |      HTTP client      |       Easy & cleaner API handling       |
-|     Jsonschema      |   Schema Validation   |  Good response valiadation of schemas   |
+|     Jsonschema      |   Schema Validation   |   Good response validation of schemas   |
 |    allure-pytest    |       Reporting       |     Good reporting of test results      |
 |    python-dotenv    | Environment variables |     Managing environment variables      |
 |    pytest-xdist     |  Test runs parallel   |         Resuce execution times          |
