@@ -74,6 +74,10 @@ To serve report,
 allure serve allure-results
 ```
 
+### Sample Allure report screenshot
+
+![Allure Report Screenshot](images/report.png)
+
 ## 2. Framework & Library choices
 
 | Library / Framework |         Usage         |                 Reason                  |
