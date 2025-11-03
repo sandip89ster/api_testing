@@ -9,6 +9,7 @@ It supports:
 - **Parallel Execution** & **Allure reporting** for easy and fast test insights
 - **Makefile** for easy command execution
 - **Test Tagging** to support test priority execution
+- **Github Actions** to execute tests on every code push
 
 ## 1. Setup Instructions
 
